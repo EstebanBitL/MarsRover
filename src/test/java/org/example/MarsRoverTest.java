@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MarsRoverTest {
+class MarsRoverTest {
 
     @Test
-    public void testInitialPositionAndDirection() {
+    void testInitialPositionAndDirection() {
         MarsRover rover = new MarsRover(1, 1, 'N');
         assertTrue(rover.checkPosition(1, 1, 'N'));
     }
 
     @Test
-    public void testCheckPosition() {
+    void testCheckPosition() {
         MarsRover rover = new MarsRover(2, 3, 'S');
 
         assertTrue(rover.checkPosition(2, 3, 'S'));
@@ -23,7 +23,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testMoveForward() {
+    void testMoveForward() {
         MarsRover rover = new MarsRover(0, 0, 'N');
         rover.processCommands("FF");//adelante ++
 
@@ -46,7 +46,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testMoveBackward() {
+    void testMoveBackward() {
         MarsRover rover = new MarsRover(0, 0, 'N');
         rover.processCommands("BB");
         assertTrue(rover.checkPosition(0, -2, 'N'));
@@ -57,7 +57,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testTurnLeft() {
+    void testTurnLeft() {
         MarsRover rover = new MarsRover(0, 0, 'N');
         rover.processCommands("L");
         assertTrue(rover.checkPosition(0, 0, 'W'));
@@ -68,7 +68,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testTurnRight() {
+    void testTurnRight() {
         //va a la direccion este desde la posicion 0
         MarsRover rover = new MarsRover(0, 0, 'N');
         rover.processCommands("R");
@@ -81,7 +81,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testCadenaDeComandos_1(){
+    void testCadenaDeComandos_1(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FB");
         //hace adelante atras pero siempre queda mirando al norte camino feliz
@@ -91,7 +91,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testCadenaDeComandos_2(){
+    void testCadenaDeComandos_2(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("LFR");
         //le paso izq,adel,der queda mirando al norte
@@ -99,45 +99,45 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void testCadenaDeComandos_3FF(){
+    void testCadenaDeComandos_3FF(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FF");
         //cadena complicada tuve que imitar el rover
         assertTrue(rover.checkPosition(1,3,'N'));
     }
     @Test
-    public void testCadenaDeComandos_3FFR(){
+    void testCadenaDeComandos_3FFR(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFR");
         assertTrue(rover.checkPosition(1,3,'E'));
     }
     @Test
-    public void testCadenaDeComandos_3FFRFF(){
+    void testCadenaDeComandos_3FFRFF(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFRFF");
         assertTrue(rover.checkPosition(3,3,'E'));
     }
     @Test
-    public void testCadenaDeComandos_3FFRFFL(){
+    void testCadenaDeComandos_3FFRFFL(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFRFFL");
         assertTrue(rover.checkPosition(3,3,'N'));
     }
     @Test
-    public void testCadenaDeComandos_3FFRFFLF(){
+    void testCadenaDeComandos_3FFRFFLF(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFRFFLF");
         assertTrue(rover.checkPosition(3,4,'N'));
     }
     @Test
-    public void testCadenaDeComandos_3FFRFFLFR(){
+    void testCadenaDeComandos_3FFRFFLFR(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFRFFLFR");
         assertTrue(rover.checkPosition(3,4,'E'));
     }
 
     @Test
-    public void testCadenaDeComandos_3FFRFFLFRFF(){
+    void testCadenaDeComandos_3FFRFFLFRFF(){
         MarsRover rover = new MarsRover(1, 1, 'N');
         rover.processCommands("FFRFFLFRFF");
         //cadena complicada tuve que imitar el rover
