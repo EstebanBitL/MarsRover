@@ -25,14 +25,19 @@ class MarsRoverTest {
     @Test
     void testMoveForward() {
         MarsRover rover = new MarsRover(0, 0, 'N');
-        rover.processCommands("FF");//adelante ++
+        rover.processCommands("FF");//adelante
 
         assertTrue(rover.checkPosition(0, 2, 'N'));
 
         rover = new MarsRover(0, 0, 'S');
-        rover.processCommands("F");//adelante
+        rover.processCommands("F");//atras mirando al sur
 
         assertTrue(rover.checkPosition(0, -1, 'S'));
+
+        rover = new MarsRover(0, 0, 'N');
+        rover.processCommands("B");//atras mirando al norte
+
+        assertTrue(rover.checkPosition(0, -1, 'N'));
 
         rover = new MarsRover(0, 0, 'W');
         rover.processCommands("FL");//adelante izquier
